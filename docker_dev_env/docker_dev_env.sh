@@ -22,7 +22,7 @@ docker run --rm -d --network=isolated_network --name nginx -p 7777:7777 -v ~/pro
 docker run --rm -d --network=isolated_network --name redis_server -p 6379:6379 redis
 
 # docker run --rm -d --network=isolated_network --name mysql -p 4407:3306 -v ~/projects/docker/db/mysql:/var/lib/mysql -v $basepath"/conf/mysql/my.cnf":/etc/mysql/my.cnf -e MYSQL_ROOT_PASSWORD=root -e MYSQL_ALLOW_EMPTY_PASSWORD=true --privileged=true mysql:8.0
-docker run --rm -d --network=isolated_network --name mysql -p 4407:3306 -v ~/projects/docker/db/mysql:/var/lib/mysql -v $basepath"/conf/mysql/my.cnf":/etc/mysql/my.cnf -e MYSQL_ROOT_PASSWORD=root -e MYSQL_ALLOW_EMPTY_PASSWORD=true --privileged=true mysql:5.7.28
+docker run --rm -d --network=isolated_network --name mysql -p 4407:3306 -v ~/projects/docker/db/mysql:/var/lib/mysql -v $basepath"/conf/mysql/my.cnf":/etc/mysql/my.cnf -e MYSQL_ROOT_PASSWORD=root -e MYSQL_ALLOW_EMPTY_PASSWORD=true --privileged=true mysql:8.0
 
 docker run --rm -d --network=isolated_network --name pgsql -p 6543:5432 -v ~/projects/docker/db/pgsql:/var/lib/postgresql/data -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres
 
