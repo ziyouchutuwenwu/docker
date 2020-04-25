@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import os
+
+class DockerCleaner:
+    @staticmethod
+    def remove_exited_container():
+        cmd = "docker ps -a | grep 'Exited' | awk '{print $1 }'"
+        result = os.popen(cmd)
+        for container_id in result.readlines():
+            os.system("docker rm " + container_id)
+
+    @staticmethod
+    def remove_unnamed_image():
+        cmd = "docker images | grep none|awk '{print $3 }'"
+        result = os.popen(cmd)
+        for image_id in result.readlines():
+            os.system("docker rmi " + image_id)
+
+    @staticmethod
+    def clean():
+        os.system("docker system prune -a -f")
+
+if __name__ == '__main__':
+    DockerCleaner.remove_exited_container()
+    DockerCleaner.remove_unnamed_image()
+    DockerCleaner.clean()
