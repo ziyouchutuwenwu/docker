@@ -1,7 +1,7 @@
 #! /bin/env bash
 
 # https://github.com/bestwu/docker-qq
-docker kill qq
+docker kill qq > /dev/null 2>&1
 docker run --name qq --rm -d \
     --device /dev/snd \
     -v ~/projects/docker/qq/:/TencentFiles \

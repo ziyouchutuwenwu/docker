@@ -1,7 +1,7 @@
 #! /bin/env bash
 
 # https://github.com/bestwu/docker-thunderspeed
-docker kill thunder
+docker kill thunder > /dev/null 2>&1
 docker run --name thunder --rm -d \
     --device /dev/snd \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
