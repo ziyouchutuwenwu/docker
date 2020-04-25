@@ -21,10 +21,9 @@ docker run --rm -d --network=isolated_network --name nginx -p 7777:7777 -v ~/pro
 
 docker run --rm -d --network=isolated_network --name redis_server -p 6379:6379 redis
 
-# docker run --rm -d --network=isolated_network --name mysql -p 4407:3306 -v ~/projects/docker/db/mysql:/var/lib/mysql -v $basepath"/conf/mysql/my.cnf":/etc/mysql/my.cnf -e MYSQL_ROOT_PASSWORD=root -e MYSQL_ALLOW_EMPTY_PASSWORD=true --privileged=true mysql:8.0
-docker run --rm -d --network=isolated_network --name mysql -p 4407:3306 -v ~/projects/docker/db/mysql:/var/lib/mysql -v $basepath"/conf/mysql/my.cnf":/etc/mysql/my.cnf -e MYSQL_ROOT_PASSWORD=root -e MYSQL_ALLOW_EMPTY_PASSWORD=true --privileged=true mysql:8.0
+docker run --rm -d --network=isolated_network --name mysql -p 4407:3306 -v ~/projects/docker/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_ALLOW_EMPTY_PASSWORD=true --privileged=true mysql:8.0
 
-docker run --rm -d --network=isolated_network --name pgsql -p 6543:5432 -v ~/projects/docker/db/pgsql:/var/lib/postgresql/data -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres
+docker run --rm -d --network=isolated_network --name pgsql -p 6543:5432 -v ~/projects/docker/pgsql:/var/lib/postgresql/data -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres
 
 docker run --rm -d --network=isolated_network --name nfs_server -v ~/projects/docker/nfs/:/nfs -e NFS_EXPORT_DIR_1=/nfs -e NFS_EXPORT_DOMAIN_1=\* -e NFS_EXPORT_OPTIONS_1=rw,insecure,no_subtree_check,no_root_squash,fsid=1 -p 111:111 -p 111:111/udp -p 2049:2049 -p 2049:2049/udp -p 32765:32765 -p 32765:32765/udp -p 32766:32766 -p 32766:32766/udp -p 32767:32767 -p 32767:32767/udp --privileged=true fuzzle/docker-nfs-server:latest
 
