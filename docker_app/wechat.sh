@@ -3,6 +3,8 @@
 # https://www.kpromise.top/run-wechat-in-linux/
 # https://github.com/bestwu/docker-wechat
 docker kill wechat > /dev/null 2>&1
+sleep 0.5
+
 docker run --name wechat --rm -d \
     --device /dev/snd \
     -v /tmp/.X11-unix:/tmp/.X11-unix \

@@ -2,6 +2,8 @@
 
 # https://github.com/bestwu/docker-qq
 docker kill qq > /dev/null 2>&1
+sleep 0.5
+
 docker run --name qq --rm -d \
     --device /dev/snd \
     -v ~/projects/docker/qq/:/TencentFiles \
