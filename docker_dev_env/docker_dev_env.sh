@@ -34,6 +34,3 @@ docker run --rm -d -it --network=isolated_network --name=tftpd -p 69:69/udp -v ~
 # -u "mmc;mmc" -s "shared;/mount/;yes;no;no;all;none"
 # 共享目录为 \\ip\shared
 docker run --rm -d --network=isolated_network --name samba -v ~/projects/docker/smb/:/mount -p 139:139 -p 445:445 dperson/samba -p -s "shared;/mount/;yes;no;yes;all;none"
-
-# for erlang build for arm
-docker run -it -d --rm --name arm_erlang --network host --rm -v ~/projects/erlang/:/usr/src arm32v7/erlang
