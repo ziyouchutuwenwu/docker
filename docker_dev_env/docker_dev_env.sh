@@ -14,7 +14,7 @@ check_docker_network
 # --user $(id -u):$(id -g)
 # sudo chown -hR $(id -u):$(id -g) ~/projects/docker
 
-docker run --rm -d --network=isolated_network --name apache_php -p 8888:80 -v ~/projects/docker/web_root:/app -e XDEBUG_REMOTE_AUTOSTART=1 -e XDEBUG_REMOTE_ENABLE=1 webdevops/php-apache-dev:7.3
+docker run --rm -d --network=isolated_network --name apache_php -p 8888:80 -v ~/projects/docker/web_root:/app -e XDEBUG_REMOTE_AUTOSTART=1 -e XDEBUG_REMOTE_ENABLE=1 webdevops/php-apache-dev:alpine
 
 docker run --rm -d --network=isolated_network --name nginx -p 7777:7777 -v ~/projects/docker/web_root:/web_root -v $basepath"/conf/nginx/":/etc/nginx/conf.d/ nginx:alpine
 # docker exec -it nginx /bin/sh
