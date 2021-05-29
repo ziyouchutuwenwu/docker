@@ -1,4 +1,4 @@
 #! /bin/bash
 
-sudo chown -R `whoami` ./
-sudo chmod -R 777 ./
+sudo chown -R `whoami` ~/projects/docker/
+sudo chmod -R 777 ~/projects/docker/
