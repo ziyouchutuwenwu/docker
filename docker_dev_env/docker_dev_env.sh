@@ -36,4 +36,4 @@ docker run --rm -d -it --net isolated_network --name=tftpd -p 69:69/udp -v ~/pro
 docker run --rm -d --net isolated_network --name samba -v ~/projects/docker/smb/:/mount -p 139:139 -p 445:445 dperson/samba -p -s "shared;/mount/;yes;no;yes;all;none"
 
 # es
-docker run --rm -d --net isolated_network --name es -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch
+docker run --rm -d --net isolated_network --name es -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.12.1
